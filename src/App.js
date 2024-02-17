@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
-function App() {
+const ColorSwitcher = () => {
+    const[color1, setColor1]= useState('red')
+    const[color2, setColor2] = useState('blue')
+
+    const ColorClick = (colorNumber)=> {
+        if (colorNumber === 1) {
+            setColor1(color2)
+            setColor2(color1)
+        }else if (colorNumber === 2 ){
+            setColor1(color2)
+            setColor2(color1)
+        }
+    }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+        <div
+            style={{
+              width: '100px',
+              height: '100px',
+              backgroundColor: color1,
+              margin: '10px',
+              display: 'inline-block',
+              cursor: 'pointer',
+            }}
+            onClick={() => ColorClick(1)}
+        ></div>
+
+        <div
+            style={{
+              width: '100px',
+              height: '100px',
+              backgroundColor: color2,
+              margin: '10px',
+              display: 'inline-block',
+              cursor: 'pointer',
+            }}
+            onClick={() => ColorClick(2)}
+        ></div>
+      </div>
   );
 }
 
-export default App;
+export default ColorSwitcher;
